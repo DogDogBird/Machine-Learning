@@ -4,10 +4,6 @@
 3. Put it in the same folder
 4. activate Spambase.py file
 5. check tensorboard
-  5-1) open cmd.exe
-  5-2) input 'tensorboard --logdir=./logs/xor_logs'
-  5-3) You can navigate to http://127.0.0.1:6006
-
 It takes about 1~3 minutes using
 environment
 ---------------------------------
