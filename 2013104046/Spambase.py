@@ -59,6 +59,7 @@ plt.show()
 
 
 #MLP hiddenLayer
+print('making layers')
 X = tf.placeholder(tf.float32, [None, 57]) # 57
 Y = tf.placeholder(tf.int32, [None, 1]) #0 ~ 1
 
@@ -118,12 +119,15 @@ with tf.name_scope("layer6")as scope:
     w6_hist = tf.summary.histogram("W6", W6)
     b6_hist = tf.summary.histogram("biases6", b6)
     hypothesis_hist = tf.summary.histogram("hypothesis", hypothesis)  
+    
+print('Finish making layers')
 
 
 # In[7]:
 
 
 #cost, optimizer 
+print('reducing cost')
 with tf.name_scope("cost") as scope:
     cost_i = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels = Y_one_hot))
     cost = tf.reduce_mean(cost_i)
@@ -131,13 +135,13 @@ with tf.name_scope("cost") as scope:
 
 with tf.name_scope("train") as scope:
     optimizer = tf.train.AdamOptimizer (learning_rate = learning_rate).minimize(cost)
-    
 
 
 # In[8]:
 
 
 #training
+print('training start')
 sess = tf.Session()
 
 merged_summary = tf.summary.merge_all()
@@ -167,13 +171,14 @@ print('Learning Finished!')
 
 
 #testing
+print('start test')
 correct_prediction = tf.equal(tf.argmax(hypothesis, 1), tf.argmax(Y_one_hot,1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 with tf.name_scope("accuracy") as scope:
     accuracy_summ = tf.summary.scalar("accuracy", accuracy)
 
 print('Accuracy:', sess.run(accuracy, feed_dict = {X: X_test, Y: Y_test}))
-
+print('test finished')
 #confusion matrix
 
 confusion = tf.confusion_matrix(labels = Y_test
