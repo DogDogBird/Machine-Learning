@@ -1,3 +1,19 @@
+About
+This model is MLP Model that detects spam mails through 5 hidden layers 
+
+Architecture
+Having 58 * 4601 Datasets
+Splitted this dataset as train and test data as 7:3 ratio.
+Using relu as Activation function because of better Accuracy.
+
+
+Optimizer
+AdamOptimizer
+
+Requirement
+tensorflow, matplot, numpy, sklearn
+
+Usage
 1. Download Spambase.py
 2. Download spambase.csv
 3. Put it in the same folder
@@ -71,3 +87,12 @@ The Dataset is consisted with 57 labels
 55. capital_run_length_average: continuous.
 56. capital_run_length_longest: continuous.
 57. capital_run_length_total: continuous.
+
+References
+https://github.com/sampepose/SpamClassifier/blob/master/my_test.py 
+https://github.com/JonathanKross/spambase/blob/master/spamalot.ipynb
+https://docs.google.com/presentation/d/1xt2J79-K7Hf5p965YU_O0PvBq1N4jCBEV021e67uw9w/edit
+https://drive.google.com/file/d/0B2_RjAGWt8ksa0Vock9Tc21rNTA/view
+
+This projects will be update first here
+https://github.com/DogDogBird/Machine-Learning/tree/master/2013104046
